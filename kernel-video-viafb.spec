@@ -22,7 +22,7 @@ Version:	2.6.00.02a
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	distributable
 Group:		Base/Kernel
-Source0:	http://www.viaarena.com/Driver/linux-fbdev-kernel-src_%{version}.tgz
+Source0:	http://drivers.viaarena.com/linux-fbdev-kernel-src_%{version}.tgz
 # Source0-md5:	0b1c68388f0d2cba8e4938293f7fbe5b
 Patch0:		%{name}-Makefile.patch
 %if %{with kernel}
