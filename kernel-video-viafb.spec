@@ -16,7 +16,7 @@
 
 %define		_rel	1
 Summary:	VIA Unichrome framebuffer driver for Linux
-Summary(pl):	Sterownik framebuffera dla kart VIA Unichrome dla Linuksa
+Summary(pl.UTF-8):   Sterownik framebuffera dla kart VIA Unichrome dla Linuksa
 Name:		kernel-video-viafb
 Version:	2.6.00.02a
 Release:	%{_rel}@%{_kernel_ver_str}
@@ -44,16 +44,16 @@ CN400, CN700, CX700).
 
 This package contains Linux kernel module.
 
-%description -l pl
-To jest sterownik do obs≥ugi framebuffera dla kart graficznych z
+%description -l pl.UTF-8
+To jest sterownik do obs≈Çugi framebuffera dla kart graficznych z
 rodziny VIA Unichrome (CLE266, KM400, KN400, KM800, KN800, PM800,
 PN800, CN400, CN700, CX700).
 
-Ten pakiet zawiera modu≥ j±dra Linuksa.
+Ten pakiet zawiera modu≈Ç jƒÖdra Linuksa.
 
 %package -n kernel-smp-video-viafb
 Summary:	VIA Unichrome framebuffer driver for Linux SMP
-Summary(pl):	Sterownik framebuffera dla kart VIA Unichrome dla Linuksa SMP
+Summary(pl.UTF-8):   Sterownik framebuffera dla kart VIA Unichrome dla Linuksa SMP
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Requires(post,postun):	/sbin/depmod
@@ -69,12 +69,12 @@ CN400, CN700, CX700).
 
 This package contains Linux SMP kernel module.
 
-%description -n kernel-smp-video-viafb -l pl
-To jest sterownik do obs≥ugi framebuffera dla kart graficznych z
+%description -n kernel-smp-video-viafb -l pl.UTF-8
+To jest sterownik do obs≈Çugi framebuffera dla kart graficznych z
 rodziny VIA Unichrome (CLE266, KM400, KN400, KM800, KN800, PM800,
 PN800, CN400, CN700, CX700).
 
-Ten pakiet zawiera modu≥ j±dra Linuksa SMP.
+Ten pakiet zawiera modu≈Ç jƒÖdra Linuksa SMP.
 
 %prep
 %setup -q -n Linux-FBDev-kernel-src_%{version}
