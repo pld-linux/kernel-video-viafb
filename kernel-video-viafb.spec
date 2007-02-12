@@ -16,7 +16,7 @@
 
 %define		_rel	1
 Summary:	VIA Unichrome framebuffer driver for Linux
-Summary(pl.UTF-8):   Sterownik framebuffera dla kart VIA Unichrome dla Linuksa
+Summary(pl.UTF-8):	Sterownik framebuffera dla kart VIA Unichrome dla Linuksa
 Name:		kernel-video-viafb
 Version:	2.6.00.02a
 Release:	%{_rel}@%{_kernel_ver_str}
@@ -53,7 +53,7 @@ Ten pakiet zawiera moduł jądra Linuksa.
 
 %package -n kernel-smp-video-viafb
 Summary:	VIA Unichrome framebuffer driver for Linux SMP
-Summary(pl.UTF-8):   Sterownik framebuffera dla kart VIA Unichrome dla Linuksa SMP
+Summary(pl.UTF-8):	Sterownik framebuffera dla kart VIA Unichrome dla Linuksa SMP
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Requires(post,postun):	/sbin/depmod
