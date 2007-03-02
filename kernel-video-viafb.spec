@@ -25,6 +25,7 @@ Group:		Base/Kernel
 Source0:	http://drivers.viaarena.com/linux-fbdev-kernel-src_%{version}.tgz
 # Source0-md5:	0b1c68388f0d2cba8e4938293f7fbe5b
 Patch0:		%{name}-Makefile.patch
+Patch1:		%{name}-bool.patch
 %if %{with kernel}
 %{?with_dist_kernel:BuildRequires:	kernel-module-build >= 3:2.6.14}
 BuildRequires:	rpmbuild(macros) >= 1.217
@@ -79,6 +80,7 @@ Ten pakiet zawiera moduł jądra Linuksa SMP.
 %prep
 %setup -q -n Linux-FBDev-kernel-src_%{version}
 %patch0 -p1
+%patch1 -p1
 cp -f Makefile_26_Lite.kernel Makefile
 
 %build
@@ -123,12 +125,12 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with kernel}
-install -d $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}{,smp}/video
+install -d $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}{,smp}/kernel/drivers/video
 install viafb-%{?with_dist_kernel:up}%{!?with_dist_kernel:nondist}.ko \
-	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/video/viafb.ko
+	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/kernel/drivers/video/viafb.ko
 %if %{with smp} && %{with dist_kernel}
 install viafb-smp.ko \
-	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/video/viafb.ko
+	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/kernel/drivers/video/viafb.ko
 %endif
 %endif
 
@@ -151,12 +153,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc readme.txt viafb.modes
-/lib/modules/%{_kernel_ver}/video/*.ko*
+/lib/modules/%{_kernel_ver}/kernel/drivers/video/*.ko*
 
 %if %{with smp} && %{with dist_kernel}
 %files -n kernel-smp-video-viafb
 %defattr(644,root,root,755)
 %doc readme.txt viafb.modes
-/lib/modules/%{_kernel_ver}smp/video/*.ko*
+/lib/modules/%{_kernel_ver}smp/kernel/drivers/video/*.ko*
 %endif
 %endif
