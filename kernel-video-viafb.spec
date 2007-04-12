@@ -11,7 +11,7 @@
 %define		_rel	1
 Summary:	VIA Unichrome framebuffer driver for Linux
 Summary(pl.UTF-8):	Sterownik framebuffera dla kart VIA Unichrome dla Linuksa
-Name:		kernel-video-viafb
+Name:		kernel%{_alt_kernel}-video-viafb
 Version:	2.6.00.02a
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	distributable
@@ -21,7 +21,7 @@ Source0:	http://drivers.viaarena.com/linux-fbdev-kernel-src_%{version}.tgz
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-bool.patch
 %if %{with kernel}
-%{?with_dist_kernel:BuildRequires:	kernel-module-build >= 3:2.6.20.2}
+%{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
 BuildRequires:	rpmbuild(macros) >= 1.379
 %endif
 BuildRequires:	sed >= 4.0
