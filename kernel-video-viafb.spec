@@ -12,14 +12,12 @@
 Summary:	VIA Unichrome framebuffer driver for Linux
 Summary(pl.UTF-8):	Sterownik framebuffera dla kart VIA Unichrome dla Linuksa
 Name:		kernel%{_alt_kernel}-video-viafb
-Version:	2.6.00.02a
+Version:	2.6.00.03a
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	distributable
 Group:		Base/Kernel
 Source0:	http://drivers.viaarena.com/linux-fbdev-kernel-src_%{version}.tgz
-# Source0-md5:	0b1c68388f0d2cba8e4938293f7fbe5b
-Patch0:		%{name}-Makefile.patch
-Patch1:		%{name}-bool.patch
+# Source0-md5:	b0b8a57431e6b0c7e9edbd56320b1cc1
 %if %{with kernel}
 %{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
 BuildRequires:	rpmbuild(macros) >= 1.379
@@ -48,9 +46,7 @@ Ten pakiet zawiera moduł jądra Linuksa.
 
 %prep
 %setup -q -n Linux-FBDev-kernel-src_%{version}
-%patch0 -p1
-%patch1 -p1
-cp -f Makefile_26_Lite.kernel Makefile
+sed -e s/\$\(CONFIG_FB_VIA\)/m/ Makefile_26.kernel > Makefile
 
 %build
 %if %{with kernel}
